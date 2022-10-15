@@ -14,7 +14,7 @@
 #define F_HASH 8
 #define F_SPACE 16
 
-/* SIZE */
+/* SIZES */
 #define S_LONG 2
 #define S_SHORT 1
 
@@ -39,9 +39,10 @@ typedef struct fmt fmt_t;
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
+
 /**********************FUNCTIONS*******************/
 
-/* Functions tpo print chars and strings */
+/* Functions to print chars and strings */
 int print_char(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int print_string(va_list types, char buffer[],
@@ -80,11 +81,11 @@ int get_width(const char *format, int *i, va_list list);
 int get_precision(const char *format, int *i, va_list list);
 int get_size(const char *format, int *i);
 
-/* Function to print string in reverse*/
+/*Function to print string in reverse*/
 int print_reverse(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 
-/* Function to print a string in rot 13 */
+/*Function to print a string in rot 13*/
 int print_rot13string(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 
@@ -99,8 +100,8 @@ int write_pointer(char buffer[], int ind, int length,
 		int width, int flags, char padd, char extra_c, int padd_start);
 
 int write_unsgnd(int is_negative, int ind,
-		char buffer[],
-		int flags, int width, int precision, int size);
+char buffer[],
+	int flags, int width, int precision, int size);
 
 /******************* UTILS **************/
 int is_printable(char);
