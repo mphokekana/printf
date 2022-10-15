@@ -5,7 +5,7 @@ void print_buffer(char buffer[], int *buff_ind);
 /**
  * _printf - printf function
  * @format: format
- * Return: print cahrs
+ * Return: print chars
  */
 int _printf(const char *format, ...)
 {
@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	va_strat(list, format);
+	va_start(list, format);
 
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			size = get_size(format, &i);
 			i++;
 			printed = handle_print(format, &i, list buffer,
-				flags, width, presision, size);
+				flags, width, precision, size);
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;
