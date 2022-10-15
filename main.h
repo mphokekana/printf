@@ -19,7 +19,7 @@
 #define S_SHORT 1
 
 /**
- * struct fmt - struct op
+ * struct fmt - Struct op
  * @fmt: The format
  * @fn: The function associated
  */
@@ -36,7 +36,7 @@ struct fmt
  */
 typedef struct fmt fmt_t;
 
-int _print(const char *format, ...);
+int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 /**********************FUNCTIONS*******************/
