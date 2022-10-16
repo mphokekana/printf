@@ -29,7 +29,7 @@ int print_pointer(va_list types, char buffer[],
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
 
-	num_addrs = (unsigned long addrs);
+	num_addrs = (unsigned long) addrs;
 
 	while (num_addrs > 0)
 	{
@@ -44,7 +44,7 @@ int print_pointer(va_list types, char buffer[],
 	else if (flags & F_SPACE)
 		extra_c ' ', length++;
 
-	index++;
+	ind++;
 
 	return (wirte_pointer(buffer, ind, length,
 				width, flags, padd, extra_c, padd_strat));
@@ -77,9 +77,9 @@ int print_non_printable(va_list types, char buffer[],
 	while (str[i] != '\0')
 	{
 		if (is_printable(str[i]))
-			buffer[i + ogffset] = str[i];
+			buffer[i + offset] = str[i];
 		else
-			offset += append_hexa_cade(str[i], buffer, i + offset);
+			offset += append_hexa_code(str[i], buffer, i + offset);
 		i++;
 	}
 	buffer[i + offset] = '\0';
@@ -118,7 +118,7 @@ int print_reverse(va_list types, char buffer[],
 	}
 	for (i = 0; str[i]; i++)
 		;
-	for (i = i - i; i >= 0; i--)
+	for (i = i - 1; i >= 0; i--)
 	{
 		char z = str[i];
 
@@ -148,7 +148,7 @@ int print_rot13string(va_list types, char buffer[],
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	str = va_arg(type, cahr *);
+	str = va_arg(type, char *);
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
