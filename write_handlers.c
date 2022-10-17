@@ -34,9 +34,9 @@ int handle_write_char(char c, char buffer[],
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1) +
 					write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
-	else
-		return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
-				write(1, &buffer[0], 1));
+		else
+			return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
+					write(1, &buffer[0], 1));
 	}
 	return (write(1, &buffer[0], 1));
 }
@@ -129,7 +129,7 @@ int write_num(int ind, char buffer[], int flags, int width, int prec,
 	return (write(1, &buffer[ind], length));
 }
 /**
- * write_nusgnd - write an unsigned nunmber
+ * write_unsgnd - write an unsigned nunmber
  * @is_negative: number indicating if the num is negative
  * @ind: index at which the number starts in the nuffer
  * @buffer: array of char
