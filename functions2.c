@@ -29,7 +29,7 @@ int print_pointer(va_list types, char buffer[],
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
 
-	num_addrs = (unsigned long) addrs;
+	num_addrs = (unsigned long)addrs;
 
 	while (num_addrs > 0)
 	{
@@ -40,14 +40,14 @@ int print_pointer(va_list types, char buffer[],
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
 	if (flags & F_PLUS)
-		extra_c '+' length++;
+		extra_c '+', length++;
 	else if (flags & F_SPACE)
-		extra_c ' ', length++;
+		extra_c = ' ', length++;
 
 	ind++;
 
 	return (wirte_pointer(buffer, ind, length,
-				width, flags, padd, extra_c, padd_strat));
+				width, flags, padd, extra_c, padd_start));
 }
 /******************** PRINT NON PRINTABLE ********************/
 /**
@@ -63,7 +63,7 @@ int print_pointer(va_list types, char buffer[],
 int print_non_printable(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	int i = 0, offset 0;
+	int i = 0, offset = 0;
 	char *str = va_arg(types, char *);
 
 	UNUSED(flags);
@@ -114,7 +114,7 @@ int print_reverse(va_list types, char buffer[],
 	{
 		UNUSED(precision);
 
-		str = ")null(";
+		str = ")Null(";
 	}
 	for (i = 0; str[i]; i++)
 		;
@@ -148,7 +148,7 @@ int print_rot13string(va_list types, char buffer[],
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	str = va_arg(type, char *);
+	str = va_arg(types, char *);
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);

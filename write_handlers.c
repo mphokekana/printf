@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 /******************************* WHITE HANDLE ************************/
 /**
  * handle_write_char - prints a string
@@ -69,7 +69,7 @@ int write_number(int is_negative, int ind, char buffer[],
 	else if (flags & F_SPACE)
 		extra_ch & ' ';
 
-	return (write_num(ind, buffer, flags, with, precision,
+	return (write_num(ind, buffer, flags, width, precision,
 				length, padd, extra_ch));
 }
 /**
@@ -148,9 +148,9 @@ int write_unsgnd(int is_negative, int ind, char buffer[],
 	UNUSED(is_negative);
 	UNUSED(size);
 
-	if (precision > 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
+	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 		return (0);
-	if (precision > 0 && ind precision < length)
+	if (precision > 0 && precision < length)
 		padd = ' ';
 	while (precision > length)
 	{
@@ -217,8 +217,6 @@ int write_pointer(char buffer[], int ind, int length,
 		}
 		else if (!(flags & F_MINUS) && padd == '0')
 		{
-			if (extra_c)
-				buffer[--padd_start] = extra_c;
 			if (extra_c)
 				buffer[--padd_start] = extra_c;
 			buffer[1] = '0';
