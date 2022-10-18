@@ -39,7 +39,11 @@ typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
+<<<<<<< HEAD
 		va_list list, char buffer[], int flags, int width, int precision, int size);
+=======
+va_list list, char buffer[], int flags, int width, int precision, int size);
+>>>>>>> 53f0b68a2094718da2e4807331bd3416a11f78e8
 
 /****************** FUNCTIONS ******************/
 
