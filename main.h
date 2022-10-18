@@ -42,11 +42,6 @@ typedef struct fmt fmt_t;
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
-<<<<<<< HEAD
-
-/**********************FUNCTIONS*******************/
-=======
->>>>>>> a32d3b23940050f1f0f24de8d0a3a9f245c30f34
 
 /****************** FUNCTIONS ******************/
 
