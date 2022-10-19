@@ -1,6 +1,6 @@
 #include "main.h"
 
-/****** PRINT POINTER ******/
+/****************** PRINT POINTER ******************/
 /**
  * print_pointer - Prints the value of a pointer variable
  * @types: List a of arguments
@@ -11,13 +11,8 @@
  * @size: Size specifier
  * Return: Number of chars printed.
  */
-<<<<<<< HEAD
 int print_pointer(va_list types, char buffer[],
-		int flags, int width, int precision, int size)
-=======
-int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
->>>>>>> 9e758433590e754010b08c3312b6133abd7c6917
 {
 	char extra_c = 0, padd = ' ';
 	int ind = BUFF_SIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
@@ -54,10 +49,10 @@ int print_char(va_list types, char buffer[],
 
 	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 	return (write_pointer(buffer, ind, length,
-				width, flags, padd, extra_c, padd_start));
+		width, flags, padd, extra_c, padd_start));
 }
 
-/********* PRINT NON PRINTABLE *********/
+/************************* PRINT NON PRINTABLE *************************/
 /**
  * print_non_printable - Prints ascii codes in hexa of non printable chars
  * @types: Lista of arguments
@@ -68,13 +63,8 @@ int print_char(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Number of chars printed
  */
-<<<<<<< HEAD
 int print_non_printable(va_list types, char buffer[],
-		int flags, int width, int precision, int size)
-=======
-int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
->>>>>>> 9e758433590e754010b08c3312b6133abd7c6917
 {
 	int i = 0, offset = 0;
 	char *str = va_arg(types, char *);
@@ -102,29 +92,20 @@ int print_string(va_list types, char buffer[],
 	return (write(1, buffer, i + offset));
 }
 
-/********* PRINT REVERSE *********/
+/************************* PRINT REVERSE *************************/
 /**
- * print_reverse - print reverse string
- * @types: List a of arguments
- * =======
  * print_reverse - Prints reverse string.
  * @types: Lista of arguments
- * >>>>>>> a32d3b23940050f1f0f24de8d0a3a9f245c30f34
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
- * precision: Precision specification
+ * @precision: Precision specification
  * @size: Size specifier
  * Return: Numbers of chars printed
  */
-<<<<<<< HEAD
 
 int print_reverse(va_list types, char buffer[],
-		int flags, int width, int precision, int size)
-=======
-int print_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
->>>>>>> 9e758433590e754010b08c3312b6133abd7c6917
 {
 	char *str;
 	int i, count = 0;
@@ -133,30 +114,6 @@ int print_percent(va_list types, char buffer[],
 	UNUSED(flags);
 	UNUSED(width);
 	UNUSED(size);
-<<<<<<< HEAD
-=======
-	return (write(1, "%%", 1));
-}
-
-/************************* PRINT INT *************************/
-/**
- * print_int - Print int
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: get width.
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
- */
-int print_int(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
-{
-	int i = BUFF_SIZE - 2;
-	int is_negative = 0;
-	long int n = va_arg(types, long int);
-	unsigned long int num;
->>>>>>> 9e758433590e754010b08c3312b6133abd7c6917
 
 	str = va_arg(types, char *);
 
@@ -178,7 +135,7 @@ int print_int(va_list types, char buffer[],
 	}
 	return (count);
 }
-/********* PRINT A STRING IN ROT13 *********/
+/************************* PRINT A STRING IN ROT13 *************************/
 /**
  * print_rot13string - Print a string in rot13.
  * @types: Lista of arguments
@@ -189,13 +146,8 @@ int print_int(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Numbers of chars printed
  */
-<<<<<<< HEAD
 int print_rot13string(va_list types, char buffer[],
-		int flags, int width, int precision, int size)
-=======
-int print_binary(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
->>>>>>> 9e758433590e754010b08c3312b6133abd7c6917
 {
 	char x;
 	char *str;
